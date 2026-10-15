@@ -17,17 +17,19 @@ The site is static, content-first and mobile-first (most visitors are students o
 ## Commands
 
 ```bash
-bundle install            # first time only
-bundle exec jekyll serve  # preview at http://localhost:4000 (mind `baseurl`)
-bundle exec jekyll build  # build to _site/ (gitignored)
+bundle install           # first time only (installs into vendor/bundle)
+./bin/jekyll serve       # preview at http://localhost:4000
+./bin/jekyll build       # build to _site/ (gitignored)
 ```
+
+Use `./bin/jekyll`, not `bundle exec jekyll`: it preloads `bin/ruby_compat.rb`, a local-only shim for `String#tainted?`, which the Liquid version pinned by `github-pages` needs but Ruby 3.2+ removed. GitHub's own build is unaffected.
 
 Deploys happen automatically when pushing to the branch GitHub Pages is configured to serve.
 
 ## Content model
 
 - Prose pages (dojo, classes, contact) are Markdown files with front matter.
-- **Gradings are data-driven.** Techniques live in `_data/grades.yml`, one entry per grade, and a single layout renders every grade page. Adding or correcting a technique means editing the YAML, not HTML. Planned shape:
+- **Gradings are data-driven.** Techniques live in `_data/grades.yml`, one entry per grade, and `graduacoes.md` renders every grade on one page with anchors (`/graduacoes/#5-kyu`), because GitHub Pages cannot generate pages from data. Adding or correcting a technique means editing the YAML, not HTML. Shape:
 
   ```yaml
   - id: 5-kyu
@@ -46,14 +48,15 @@ Deploys happen automatically when pushing to the branch GitHub Pages is configur
 
 ## Conventions
 
-- Language: TBD (confirm with the owner before writing content; likely Portuguese with Japanese terms). Keep one language per page, and keep romanization spelling consistent across all pages.
+- Language: Portuguese (pt-BR) with romanized Japanese terms. Keep romanization spelling consistent across all pages.
 - Never invent syllabus content. Exam requirements, schedules, prices and instructor details must come from the owner or the dojo. Use clearly marked `TODO` placeholders when information is missing.
 - Keep the site simple: no JavaScript beyond what the theme ships, no extra plugins unless they are on the GitHub Pages allowlist.
 - Images should be compressed before committing (web-sized, not camera originals).
 - Use relative links via `{{ site.baseurl }}` / `relative_url` so the site works under a GitHub Pages subpath.
 
-## Open questions
+## Decisions and open questions
 
-- Does the sensei approve publishing the exam syllabus, and the dojo's name/logo?
-- Final site language and the dojo's organization/federation (it determines the official syllabus).
-- Repository name / GitHub Pages URL, and whether a custom domain will be used.
+- Sensei approved publishing the exam syllabus and the dojo's name/logo.
+- Site language: Portuguese (pt-BR). Keep Japanese terms in romanized form.
+- No custom domain for now; the site is served from the `github.io` URL, so `baseurl`/`url` in `_config.yml` must be set once the repo exists.
+- Still open: the dojo's organization/federation and the official syllabus (owner will provide).

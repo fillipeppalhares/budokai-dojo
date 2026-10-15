@@ -1,0 +1,4 @@
+#!/bin/sh
+# Runs Jekyll locally on modern Rubies: ./bin/jekyll serve | build
+cd "$(dirname "$0")/.." || exit 1
+RUBYOPT="-r$PWD/bin/ruby_compat.rb $RUBYOPT" exec bundle exec jekyll "$@"

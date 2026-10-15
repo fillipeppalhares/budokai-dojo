@@ -29,6 +29,7 @@ plugins:
   - jekyll-feed
 
 exclude:
+  - bin
   - CLAUDE.md
   - Gemfile
   - Gemfile.lock
