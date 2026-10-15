@@ -6,10 +6,8 @@ description: >
   em cada exame de graduação de Aikido.
 lang: pt-BR
 
-# TODO: set once the GitHub repository exists.
-# Project page (user.github.io/repo): baseurl "/repo" and url "https://user.github.io"
-baseurl: ""
-url: ""
+baseurl: "/budokai-dojo"
+url: "https://fillipeppalhares.github.io"
 
 # Theme: https://github.com/aksakalli/jekyll-doc-theme (loaded remotely by GitHub Pages)
 remote_theme: aksakalli/jekyll-doc-theme@gh-pages
