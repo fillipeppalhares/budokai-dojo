@@ -1,0 +1,21 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container navbar-container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Alternar navegação</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ "/" | relative_url }}">{{ site.title }}</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li {% if page.url == '/sobre/' %}class="active"{% endif %}><a href="{{ "/sobre/" | relative_url }}">O Dojo</a></li>
+                <li {% if page.url == '/aulas/' %}class="active"{% endif %}><a href="{{ "/aulas/" | relative_url }}">Aulas</a></li>
+                <li {% if page.url == '/graduacoes/' %}class="active"{% endif %}><a href="{{ "/graduacoes/" | relative_url }}">Graduações</a></li>
+                <li {% if page.url == '/contato/' %}class="active"{% endif %}><a href="{{ "/contato/" | relative_url }}">Contato</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

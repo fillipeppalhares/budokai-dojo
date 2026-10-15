@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<div class="header-container jumbotron">
+    <div class="container">
+        <h1>{{ site.title }}</h1>
+        <p>TODO: frase curta de apresentação do dojo (estilo, cidade, para quem são as aulas).</p>
+        <p>
+            <a class="btn btn-primary btn-lg" href="{{ "/aulas/" | relative_url }}" role="button">Ver aulas</a>
+            <a class="btn btn-default btn-lg" href="{{ "/graduacoes/" | relative_url }}" role="button">Exames de graduação</a>
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <h3 class="text-center">O Dojo</h3>
+            <p>TODO: uma ou duas frases sobre a história e o estilo de Aikido praticado. <a href="{{ "/sobre/" | relative_url }}">Saiba mais</a>.</p>
+        </div>
+        <div class="col-sm-4">
+            <h3 class="text-center">Aulas</h3>
+            <p>TODO: dias e horários resumidos, e se há turma para iniciantes. <a href="{{ "/aulas/" | relative_url }}">Ver horários</a>.</p>
+        </div>
+        <div class="col-sm-4">
+            <h3 class="text-center">Graduações</h3>
+            <p>Consulte as técnicas exigidas em cada exame, do primeiro kyu ao dan. <a href="{{ "/graduacoes/" | relative_url }}">Ver exames</a>.</p>
+        </div>
+    </div>
+</div>

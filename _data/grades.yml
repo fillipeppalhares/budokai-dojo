@@ -1,0 +1,69 @@
+# Exam syllabus, one entry per grade, rendered by graduacoes.md.
+# PLACEHOLDER DATA: replace with the official syllabus provided by the dojo.
+#
+# Fields per grade:
+#   id          anchor used in the URL (/graduacoes/#5-kyu)
+#   name        display name
+#   belt        belt colour (free text)
+#   notes       optional text shown above the table
+# Fields per technique:
+#   name        romanized Japanese name (canonical)
+#   japanese    optional kanji/kana
+#   meaning     optional translation or short description
+#   attack      optional attack (e.g. katate-dori)
+#   variants    optional list (e.g. omote, ura)
+#   video       optional YouTube URL
+
+- id: 5-kyu
+  name: 5º Kyu
+  belt: Branca
+  notes: "TODO: tempo mínimo de prática e demais requisitos do exame."
+  techniques:
+    - name: Ikkyo
+      japanese: 一教
+      meaning: "TODO: primeiro controle"
+      attack: Katate-dori
+      variants: [omote, ura]
+      video: ""
+    - name: Shihonage
+      japanese: 四方投げ
+      meaning: "TODO: projeção nas quatro direções"
+      attack: Katate-dori
+      variants: [omote, ura]
+      video: ""
+
+- id: 4-kyu
+  name: 4º Kyu
+  belt: Amarela
+  notes: "TODO: tempo mínimo de prática e demais requisitos do exame."
+  techniques:
+    - name: Nikyo
+      japanese: 二教
+      meaning: "TODO: segundo controle"
+      attack: Shomen-uchi
+      variants: [omote, ura]
+      video: ""
+    - name: Irimi-nage
+      japanese: 入身投げ
+      meaning: "TODO: projeção com entrada"
+      attack: Shomen-uchi
+      variants: []
+      video: ""
+
+- id: 3-kyu
+  name: 3º Kyu
+  belt: Laranja
+  notes: "TODO: tempo mínimo de prática e demais requisitos do exame."
+  techniques:
+    - name: Sankyo
+      japanese: 三教
+      meaning: "TODO: terceiro controle"
+      attack: Ryote-dori
+      variants: [omote, ura]
+      video: ""
+    - name: Kote-gaeshi
+      japanese: 小手返し
+      meaning: "TODO: torção do punho"
+      attack: Ryote-dori
+      variants: []
+      video: ""
