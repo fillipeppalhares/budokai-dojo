@@ -29,18 +29,21 @@ Deploys happen automatically when pushing to the branch GitHub Pages is configur
 ## Content model
 
 - Prose pages (dojo, classes, contact) are Markdown files with front matter.
-- **Gradings are data-driven.** Techniques live in `_data/grades.yml`, one entry per grade, and `graduacoes.md` renders every grade on one page with anchors (`/graduacoes/#5-kyu`), because GitHub Pages cannot generate pages from data. Adding or correcting a technique means editing the YAML, not HTML. Shape:
+- **Gradings are a Jekyll collection** (`_graduacoes/`), one Markdown file per exam, rendered by `_layouts/graduacao.html` at `/graduacoes/<name>/`. This needs no plugin, so it works on GitHub Pages. `graduacoes.md` is the index and lists the collection sorted by `order`; previous/next links on each page use the same order. To add an exam, create a new file (e.g. `_graduacoes/2-kyu.md`) with the next `order`. Fixing a technique means editing that file's front matter, not HTML. The Markdown body holds free-text requirements (minimum practice time etc.).
 
   ```yaml
-  - id: 5-kyu
-    name: 5º Kyu          # display name
-    belt: white           # belt colour
-    techniques:
-      - name: Shihonage
-        japanese: 四方投げ
-        from: katate-dori  # attack
-        variants: [omote, ura]
-        video: ""          # optional YouTube URL
+  ---
+  title: 5º Kyu
+  belt: Branca
+  order: 1                # position in the index and prev/next
+  techniques:
+    - name: Shihonage
+      japanese: 四方投げ    # optional
+      meaning: ""          # optional translation or short description
+      attack: Katate-dori  # optional
+      variants: [omote, ura]
+      video: ""            # optional YouTube URL
+  ---
   ```
 
 - Technique names: keep the Japanese romanization as the canonical name, and add a translation or short description where it helps beginners.

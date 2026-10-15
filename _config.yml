@@ -26,6 +26,18 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
 
+collections:
+  graduacoes:
+    output: true
+    permalink: /graduacoes/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: graduacoes
+    values:
+      layout: graduacao
+
 exclude:
   - bin
   - CLAUDE.md

@@ -1,0 +1,53 @@
+---
+layout: page
+---
+
+<p class="lead">Faixa {{ page.belt | downcase }}</p>
+
+{{ content }}
+
+<div class="table-responsive">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Técnica</th>
+      <th>Ataque</th>
+      <th>Variações</th>
+      <th>Vídeo</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for t in page.techniques %}
+    <tr>
+      <td>
+        <strong>{{ t.name }}</strong>{% if t.japanese %} <span class="text-muted">{{ t.japanese }}</span>{% endif %}
+        {% if t.meaning %}<br><small>{{ t.meaning }}</small>{% endif %}
+      </td>
+      <td>{{ t.attack }}</td>
+      <td>{{ t.variants | join: ", " }}</td>
+      <td>{% if t.video and t.video != "" %}<a href="{{ t.video }}" target="_blank" rel="noopener">Assistir</a>{% endif %}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+
+{% assign grades = site.graduacoes | sort: "order" %}
+{% for g in grades %}
+  {% if g.url == page.url %}
+    {% assign prev_index = forloop.index0 | minus: 1 %}
+    {% unless forloop.first %}{% assign prev_grade = grades[prev_index] %}{% endunless %}
+    {% assign next_index = forloop.index0 | plus: 1 %}
+    {% unless forloop.last %}{% assign next_grade = grades[next_index] %}{% endunless %}
+  {% endif %}
+{% endfor %}
+
+<ul class="pager">
+  <li class="previous{% unless prev_grade %} disabled{% endunless %}">
+    <a href="{% if prev_grade %}{{ prev_grade.url | relative_url }}{% else %}#{% endif %}">&larr; {% if prev_grade %}{{ prev_grade.title }}{% else %}Anterior{% endif %}</a>
+  </li>
+  <li><a href="{{ "/graduacoes/" | relative_url }}">Todas as graduações</a></li>
+  <li class="next{% unless next_grade %} disabled{% endunless %}">
+    <a href="{% if next_grade %}{{ next_grade.url | relative_url }}{% else %}#{% endif %}">{% if next_grade %}{{ next_grade.title }}{% else %}Próximo{% endif %} &rarr;</a>
+  </li>
+</ul>

@@ -13,7 +13,7 @@
             <ul class="nav navbar-nav">
                 <li {% if page.url == '/sobre/' %}class="active"{% endif %}><a href="{{ "/sobre/" | relative_url }}">O Dojo</a></li>
                 <li {% if page.url == '/aulas/' %}class="active"{% endif %}><a href="{{ "/aulas/" | relative_url }}">Aulas</a></li>
-                <li {% if page.url == '/graduacoes/' %}class="active"{% endif %}><a href="{{ "/graduacoes/" | relative_url }}">Graduações</a></li>
+                <li {% if page.url contains '/graduacoes/' %}class="active"{% endif %}><a href="{{ "/graduacoes/" | relative_url }}">Graduações</a></li>
                 <li {% if page.url == '/contato/' %}class="active"{% endif %}><a href="{{ "/contato/" | relative_url }}">Contato</a></li>
             </ul>
         </div>
